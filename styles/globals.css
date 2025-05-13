@@ -1,0 +1,530 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Design System Tokens
+ * 
+ * Our design system uses CSS variables as the source of truth,
+ * which are then consumed by Tailwind. This approach provides
+ * flexibility with alpha channel support through RGB values.
+ */
+@layer base {
+  :root {
+    /* ---------------------------------- */
+    /* Brand Colors - Default Theme      */
+    /* ---------------------------------- */
+    --brand-primary: 31 163 124; /* #1fa37c - Green */
+    --brand-primary-light: 236 248 242; /* #ECF8F2 */
+    --brand-primary-dark: 16 82 62; /* #10523e */
+    --brand-secondary: 51 51 51; /* #333333 */
+    --brand-tertiary: 0 106 118; /* #006A76 */
+    --brand-quaternary: 255 168 0; /* #FFA800 */
+
+    /* ---------------------------------- */
+    /* System Feedback Colors            */
+    /* Consistent across all themes      */
+    /* ---------------------------------- */
+    --system-success: 61 187 137; /* #3DBB89 */
+    --system-error: 220 93 94; /* #DC5D5E */
+    --system-warning: 255 195 54; /* #FFC336 */
+    --system-info: 0 114 245; /* #0072F5 */
+    --system-pending: 121 0 186; /* #7900BA */
+
+    /* ---------------------------------- */
+    /* Neutral Colors                    */
+    /* Base palette for UI elements      */
+    /* ---------------------------------- */
+    --neutral-background: 255 255 255; /* #FFFFFF */
+    --neutral-foreground: 0 0 0; /* #000000 */
+    --neutral-muted: 241 243 245; /* #F1F3F5 */
+    --neutral-muted-foreground: 102 102 102; /* #666666 */
+    --neutral-border: 229 229 229; /* #E5E5E5 */
+
+    /* ---------------------------------- */
+    /* Radius                            */
+    /* Used for consistent rounding      */
+    /* ---------------------------------- */
+    --radius: 0.5rem;
+  }
+
+  /* ------------------------------------ */
+  /* Text Selection Styling               */
+  /* ------------------------------------ */
+  ::selection {
+    @apply bg-primary/20 text-foreground;
+  }
+
+  /* For Firefox */
+  ::-moz-selection {
+    @apply bg-primary/20 text-foreground;
+  }
+
+  /* ------------------------------------ */
+  /* Alternative Themes                   */
+  /* Apply via .theme-{name} classes     */
+  /* ------------------------------------ */
+  
+  /* Blue Theme */
+  .theme-blue {
+    --brand-primary: 25 113 194; /* #1971C2 */
+    --brand-primary-light: 232 240 254; /* #E8F0FE */
+    --brand-primary-dark: 12 83 148; /* #0C5394 */
+    --brand-secondary: 44 62 80; /* #2C3E50 */
+    --brand-tertiary: 52 152 219; /* #3498DB */
+    --brand-quaternary: 241 196 15; /* #F1C40F */
+  }
+
+  /* Purple Theme */
+  .theme-purple {
+    --brand-primary: 128 90 213; /* #805AD5 */
+    --brand-primary-light: 237 233 254; /* #EDE9FE */
+    --brand-primary-dark: 85 60 154; /* #553C9A */
+    --brand-secondary: 44 44 84; /* #2C2C54 */
+    --brand-tertiary: 159 122 234; /* #9F7AEA */
+    --brand-quaternary: 236 201 75; /* #ECC94B */
+  }
+
+  /* Red Theme */
+  .theme-red {
+    --brand-primary: 237 28 36; /* #ED1C24 */
+    --brand-primary-light: 255 235 235; /* #FFEBEB */
+    --brand-primary-dark: 178 21 27; /* #B2151B */
+    --brand-secondary: 51 51 51; /* #333333 */
+    --brand-tertiary: 220 53 69; /* #DC3545 */
+    --brand-quaternary: 255 193 7; /* #FFC107 */
+  }
+
+  /* ------------------------------------ */
+  /* Typography Base Styles               */
+  /* ------------------------------------ */
+  body {
+    @apply text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  /* ------------------------------------ */
+  /* Form Element Base Styles             */
+  /* ------------------------------------ */
+  input,
+  select,
+  textarea {
+    @apply w-full border border-neutral px-3 py-2 rounded-md;
+    @apply outline-none transition-all duration-200;
+    @apply placeholder:text-muted-foreground/60;
+    @apply text-foreground;
+  }
+
+  /* Focus states */
+  input:focus,
+  select:focus,
+  textarea:focus {
+    @apply border-primary ring-2 ring-primary/20 outline-none;
+  }
+
+  /* Invalid state */
+  input:invalid,
+  select:invalid,
+  textarea:invalid {
+    @apply border-error;
+  }
+
+  /* Disabled state */
+  input:disabled,
+  select:disabled,
+  textarea:disabled {
+    @apply bg-muted cursor-not-allowed opacity-70;
+  }
+
+  /* Checkbox and radio */
+  input[type="checkbox"],
+  input[type="radio"] {
+    @apply w-4 h-4 border-neutral text-primary focus:ring-primary/30;
+  }
+
+  /* Button base */
+  button {
+    @apply px-4 py-2 rounded-md transition-all duration-200;
+    @apply font-medium text-sm;
+    @apply outline-none focus:ring-2 focus:ring-primary/30;
+  }
+
+  /* Focus styling */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary/50;
+  }
+
+  /* Label */
+  label {
+    @apply text-sm font-medium text-foreground mb-1 inline-block;
+  }
+}
+
+/* ---------------------------------------- */
+/* Component styles                         */
+/* Reusable patterns built with Tailwind    */
+/* ---------------------------------------- */
+@layer components {
+  /* ------------------------------------ */
+  /* Button Variants                      */
+  /* ------------------------------------ */
+  .btn-primary {
+    @apply bg-primary text-white hover:opacity-90 active:opacity-80;
+    @apply shadow-sm hover:shadow;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:opacity-90 active:opacity-100;
+    @apply shadow-sm hover:shadow;
+  }
+
+  .btn-tertiary {
+    @apply bg-tertiary text-white hover:opacity-90 active:opacity-100;
+    @apply shadow-sm hover:shadow;
+  }
+
+  .btn-outline {
+    @apply border border-primary text-primary hover:bg-primary/10 active:bg-primary/20;
+  }
+
+  .btn-disabled {
+    @apply bg-muted text-muted-foreground cursor-not-allowed shadow-none;
+  }
+
+  /* Gradient Buttons */
+  .btn-primary-gradient {
+    @apply text-white shadow-sm hover:shadow;
+    @apply bg-gradient-to-r from-primary to-primary-dark hover:opacity-90 active:opacity-80;
+  }
+
+  .btn-secondary-gradient {
+    @apply text-white shadow-sm hover:shadow;
+    @apply bg-gradient-to-r from-secondary to-tertiary hover:opacity-90 active:opacity-80;
+  }
+
+  /* ------------------------------------ */
+  /* Alert Variants                       */
+  /* ------------------------------------ */
+  .alert {
+    @apply p-4 rounded-md border flex items-start gap-3;
+  }
+
+  .alert-success {
+    @apply bg-success/10 text-success border-success/20;
+  }
+
+  .alert-error {
+    @apply bg-error/10 text-error border-error/20;
+  }
+
+  .alert-warning {
+    @apply bg-warning/10 text-warning border-warning/20;
+  }
+
+  .alert-info {
+    @apply bg-info/10 text-info border-info/20;
+  }
+
+  /* ------------------------------------ */
+  /* Card Variants                        */
+  /* ------------------------------------ */
+  .card {
+    @apply bg-background border border-neutral rounded-lg p-6 shadow-sm;
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-md hover:border-primary/20;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20;
+  }
+
+  /* ------------------------------------ */
+  /* Badge Variants                       */
+  /* ------------------------------------ */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-primary text-white;
+  }
+
+  .badge-secondary {
+    @apply bg-secondary text-white;
+  }
+
+  .badge-outline {
+    @apply bg-transparent border border-current;
+  }
+
+  .badge-success {
+    @apply bg-success text-white;
+  }
+
+  .badge-error {
+    @apply bg-error text-white;
+  }
+
+  .badge-warning {
+    @apply bg-warning text-foreground;
+  }
+
+  .badge-info {
+    @apply bg-info text-white;
+  }
+
+  /* ------------------------------------ */
+  /* Tooltip                              */
+  /* ------------------------------------ */
+  .tooltip {
+    @apply relative inline-block;
+  }
+
+  .tooltip-text {
+    @apply invisible absolute z-10 px-3 py-2 text-sm rounded-md shadow-md;
+    @apply bg-secondary text-white whitespace-nowrap;
+    @apply opacity-0 transition-opacity duration-300;
+    @apply bottom-full left-1/2 -translate-x-1/2 mb-2;
+    @apply after:content-[''] after:absolute after:top-full after:left-1/2 after:-ml-1;
+    @apply after:border-4 after:border-transparent after:border-t-secondary;
+  }
+
+  .tooltip:hover .tooltip-text {
+    @apply visible opacity-100;
+  }
+
+  /* Tab Styles */
+  .tabs {
+    @apply flex border-b border-neutral;
+  }
+
+  .tab {
+    @apply px-4 py-2 text-sm font-medium cursor-pointer;
+    @apply border-b-2 border-transparent -mb-px;
+    @apply hover:text-primary hover:border-primary/30;
+    @apply transition-colors duration-200;
+  }
+
+  .tab-active {
+    @apply text-primary border-primary;
+  }
+
+  .tab-content {
+    @apply p-4;
+  }
+
+  /* Avatar */
+  .avatar {
+    @apply relative inline-flex items-center justify-center;
+    @apply rounded-full overflow-hidden bg-neutral;
+    @apply text-foreground font-medium;
+  }
+
+  .avatar-sm {
+    @apply w-8 h-8 text-xs;
+  }
+
+  .avatar-md {
+    @apply w-10 h-10 text-sm;
+  }
+
+  .avatar-lg {
+    @apply w-12 h-12 text-base;
+  }
+
+  /* Gradient Backgrounds */
+  .bg-primary-gradient {
+    @apply bg-gradient-to-r from-primary to-primary-dark;
+  }
+
+  .bg-primary-gradient-light {
+    @apply bg-gradient-to-r from-primary-light to-primary/30;
+  }
+
+  .bg-secondary-gradient {
+    @apply bg-gradient-to-r from-secondary to-tertiary;
+  }
+
+  /* Form Group */
+  .form-group {
+    @apply space-y-2 mb-4;
+  }
+
+  /* Input Group */
+  .input-group {
+    @apply flex items-center;
+  }
+
+  .input-group > input {
+    @apply flex-1;
+  }
+
+  .input-group-text {
+    @apply bg-muted px-3 py-2 border border-neutral flex items-center;
+  }
+
+  .input-group-text:first-child {
+    @apply rounded-l-md rounded-r-none border-r-0;
+  }
+
+  .input-group-text:last-child {
+    @apply rounded-r-md rounded-l-none border-l-0;
+  }
+
+  .input-group > input:not(:first-child):not(:last-child) {
+    @apply rounded-none;
+  }
+
+  .input-group > input:first-child {
+    @apply rounded-r-none;
+  }
+
+  .input-group > input:last-child {
+    @apply rounded-l-none;
+  }
+
+  /* Divider */
+  .divider {
+    @apply flex items-center text-muted-foreground my-4;
+  }
+
+  .divider::before,
+  .divider::after {
+    @apply content-[''] flex-1 border-t border-neutral;
+  }
+
+  .divider::before {
+    @apply mr-3;
+  }
+
+  .divider::after {
+    @apply ml-3;
+  }
+
+  /* Progress Bar */
+  .progress {
+    @apply w-full h-2 bg-muted rounded-full overflow-hidden;
+  }
+
+  .progress-bar {
+    @apply h-full bg-primary transition-all duration-300;
+  }
+
+  .progress-bar-striped {
+    @apply bg-gradient-to-r from-primary to-primary-dark bg-[length:1rem_1rem];
+  }
+
+  /* Skeleton Loading */
+  .skeleton {
+    @apply animate-pulse bg-muted rounded;
+  }
+
+  /* ---------------------------------------- */
+  /* Design System Documentation Styles      */
+  /* ---------------------------------------- */
+  .ds-section {
+    @apply border-b border-neutral/60 pb-12 mb-12 last:border-0;
+  }
+
+  .ds-section-title {
+    @apply text-2xl font-semibold mb-6;
+  }
+
+  .ds-card {
+    @apply bg-background border border-neutral rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow;
+  }
+
+  .ds-preview {
+    @apply p-8 border-b rounded-t-lg bg-neutral/5 flex items-center justify-center gap-4 flex-wrap;
+  }
+
+  .ds-code {
+    @apply p-4 text-sm font-mono bg-muted rounded-b-lg overflow-x-auto;
+  }
+
+  /* Code highlighting styles */
+  pre, code {
+    @apply text-foreground;
+  }
+
+  pre ::selection, 
+  code ::selection,
+  .ds-code ::selection,
+  .font-mono ::selection {
+    @apply bg-primary/30;
+  }
+
+  pre ::-moz-selection, 
+  code ::-moz-selection,
+  .ds-code ::-moz-selection,
+  .font-mono ::-moz-selection {
+    @apply bg-primary/30;
+  }
+
+  .ds-table {
+    @apply w-full text-sm;
+  }
+
+  .ds-table th {
+    @apply text-left py-3 px-4 text-muted-foreground font-medium border-b border-neutral;
+  }
+
+  .ds-table td {
+    @apply py-3 px-4 border-b border-neutral/40;
+  }
+
+  .ds-token-preview {
+    @apply flex items-center gap-2;
+  }
+
+  .ds-color-swatch {
+    @apply w-10 h-10 rounded-md border border-neutral/30;
+  }
+}
+
+/* Add highlight utilities */
+@layer utilities {
+  .highlight {
+    @apply bg-primary/15 px-1 py-0.5 rounded-sm;
+  }
+  
+  .highlight-strong {
+    @apply bg-primary/25 px-1 py-0.5 rounded-sm font-medium;
+  }
+  
+  .highlight-warning {
+    @apply bg-warning/20 px-1 py-0.5 rounded-sm;
+  }
+  
+  .highlight-error {
+    @apply bg-error/15 px-1 py-0.5 rounded-sm;
+  }
+  
+  .highlight-success {
+    @apply bg-success/15 px-1 py-0.5 rounded-sm;
+  }
+
+  /* Theme-specific highlights */
+  .theme-blue .highlight {
+    background-color: rgba(25, 113, 194, 0.15);
+  }
+  
+  .theme-purple .highlight {
+    background-color: rgba(128, 90, 213, 0.15);
+  }
+  
+  .theme-red .highlight {
+    background-color: rgba(237, 28, 36, 0.15);
+  }
+}
