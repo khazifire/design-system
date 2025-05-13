@@ -93,7 +93,7 @@ export default function DesignSystemDemo() {
               <LucideSearch className="absolute right-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
             </div>
             <ThemeSwitcher />
-            <a href="https://github.com/username/design-system" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/khazifire/design-system" target="_blank" rel="noopener noreferrer">
               <Button variant="ghost" size="icon">
                 <svg viewBox="0 0 24 24" className="h-5 w-5">
                   <path
