@@ -165,8 +165,10 @@ export function DesignGuidelines() {
 const config: Config = {
   darkMode: ["class"],
   content: [
+    "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -208,11 +210,14 @@ const config: Config = {
         md: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
         lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
       },
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(to right, rgb(var(--brand-primary)), rgb(var(--brand-primary-dark)))',
+        'gradient-secondary': 'linear-gradient(to right, rgb(var(--brand-secondary)), rgb(var(--brand-tertiary)))',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
 }
-
 export default config`}
                 language="typescript"
               />
@@ -227,6 +232,7 @@ export default config`}
 @tailwind utilities;
 
 @layer base {
+     :root {
     /* ---------------------------------- */
     /* Brand Colors - Default Theme      */
     /* ---------------------------------- */
@@ -262,6 +268,7 @@ export default config`}
     /* Used for consistent rounding      */
     /* ---------------------------------- */
     --radius: 0.5rem;
+  }
 }`}
                 language="css"
               />

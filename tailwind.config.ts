@@ -55,6 +55,10 @@ const config: Config = {
         md: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
         lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
       },
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(to right, rgb(var(--brand-primary)), rgb(var(--brand-primary-dark)))',
+        'gradient-secondary': 'linear-gradient(to right, rgb(var(--brand-secondary)), rgb(var(--brand-tertiary)))',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

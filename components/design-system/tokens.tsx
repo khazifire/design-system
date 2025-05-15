@@ -132,6 +132,31 @@ export function DesignTokens() {
           </TokenTable>
 
           <TokenTable 
+            title="Brand Gradients"
+            description="Tailwind utility classes for brand gradients. These are theme-aware."
+          >
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Utility Class</TableHead>
+                  <TableHead>Preview</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell className="font-medium font-mono text-sm">bg-gradient-primary</TableCell>
+                  <TableCell><div className="w-24 h-12 rounded bg-gradient-primary border border-neutral/20" /></TableCell>
+                </TableRow>
+               
+                <TableRow>
+                  <TableCell className="font-medium font-mono text-sm">bg-gradient-secondary</TableCell>
+                  <TableCell><div className="w-24 h-12 rounded bg-gradient-secondary border border-neutral/20" /></TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TokenTable>
+
+          <TokenTable 
             title="System Feedback Colors" 
             description="Colors used to communicate feedback, status, and system messages to users."
           >
