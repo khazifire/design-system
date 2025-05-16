@@ -10,7 +10,6 @@ import type { Config } from "tailwindcss"
 const config: Config = {
   darkMode: ["class"],
   content: [
-    "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "*.{js,ts,jsx,tsx,mdx}",
@@ -56,8 +55,8 @@ const config: Config = {
         lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(to right, rgb(var(--brand-primary)), rgb(var(--brand-primary-dark)))',
-        'gradient-secondary': 'linear-gradient(to right, rgb(var(--brand-secondary)), rgb(var(--brand-tertiary)))',
+        'gradient-primary': 'linear-gradient(to bottom right, rgb(var(--brand-primary) / 0.7), rgb(var(--brand-primary-dark) / 0.8))',
+        'gradient-secondary': 'linear-gradient(to bottom right, rgb(var(--brand-secondary)), rgb(var(--brand-tertiary) / 0.7))',
       },
     },
   },

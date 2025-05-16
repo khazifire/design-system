@@ -290,28 +290,33 @@ export default function DesignSystemDemo() {
                       Our theme system is built on CSS variables, making it easy to customize and extend.
                     </p>
                     <pre className="bg-muted p-4 rounded-md text-sm overflow-x-auto">
-{`:root {
-  /* Brand Colors */
-  --brand-primary: 31 163 124;
-  --brand-secondary: 51 51 51;
-  --brand-tertiary: 0 106 118;
+{`
+  .theme-green {
+    --brand-primary: 31 163 124; /* #1fa37c - Green */
+    --brand-primary-light: 236 248 242; /* #ECF8F2 */
+    --brand-primary-dark: 16 82 62; /* #10523e */
+    --brand-secondary: 51 51 51; /* #333333 */
+    --brand-tertiary: 0 106 118; /* #006A76 */
+    --brand-quaternary: 255 168 0; /* #FFA800 */
+  }
 
-  /* System Colors */
-  --system-success: 61 187 137;
-  --system-error: 220 93 94;
-  --system-warning: 255 195 54;
-  
-  /* Theme Colors */
-  --background: 255 255 255;
-  --foreground: 0 0 0;
-}
+  .theme-blue {
+    --brand-primary: 25 113 194; /* #1971C2 */
+    --brand-primary-light: 232 240 254; /* #E8F0FE */
+    --brand-primary-dark: 12 83 148; /* #0C5394 */
+    --brand-secondary: 44 62 80; /* #2C3E50 */
+    --brand-tertiary: 52 152 219; /* #3498DB */
+    --brand-quaternary: 241 196 15; /* #F1C40F */
+  }
 
-/* Theme Variants */
-.theme-blue {
-  --brand-primary: 25 113 194;
-  --brand-secondary: 44 62 80;
-  --brand-tertiary: 52 152 219;
-}`}
+  .theme-red {
+    --brand-primary: 237 28 36; /* #ED1C24 */
+    --brand-primary-light: 255 235 235; /* #FFEBEB */
+    --brand-primary-dark: 178 21 27; /* #B2151B */
+    --brand-secondary: 51 51 51; /* #333333 */
+    --brand-tertiary: 220 53 69; /* #DC3545 */
+    --brand-quaternary: 255 193 7; /* #FFC107 */
+  }`}
                     </pre>
                   </Card>
                 </section>
