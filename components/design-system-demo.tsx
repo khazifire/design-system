@@ -293,7 +293,7 @@ export default function DesignSystemDemo() {
 {`
   .theme-green {
     --brand-primary: 31 163 124; /* #1fa37c - Green */
-    --brand-primary-light: 236 249 242; /* #ECF8F2 */
+    --brand-primary-light: 242 248 246; /* #ECF8F2 */
     --brand-primary-dark: 16 82 62; /* #10523e */
     --brand-secondary: 51 51 51; /* #333333 */
     --brand-tertiary: 0 106 118; /* #006A76 */
