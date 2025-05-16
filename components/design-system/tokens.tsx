@@ -147,10 +147,15 @@ export function DesignTokens() {
                   <TableCell className="font-medium font-mono text-sm">bg-gradient-primary</TableCell>
                   <TableCell><div className="w-24 h-12 rounded bg-gradient-primary border border-neutral/20" /></TableCell>
                 </TableRow>
-               
+
                 <TableRow>
                   <TableCell className="font-medium font-mono text-sm">bg-gradient-secondary</TableCell>
                   <TableCell><div className="w-24 h-12 rounded bg-gradient-secondary border border-neutral/20" /></TableCell>
+                </TableRow>
+               
+                <TableRow>
+                  <TableCell className="font-medium font-mono text-sm">bg-gradient-tertiary</TableCell>
+                  <TableCell><div className="w-24 h-12 rounded bg-gradient-tertiary border border-neutral/20" /></TableCell>
                 </TableRow>
               </TableBody>
             </Table>

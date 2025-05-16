@@ -210,9 +210,10 @@ const config: Config = {
         md: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
         lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
       },
-       backgroundImage: {
-        'gradient-primary': 'linear-gradient(to bottom right, rgb(var(--brand-primary) / 0.7), rgb(var(--brand-primary-dark) / 0.8))',
-        'gradient-secondary': 'linear-gradient(to bottom right, rgb(var(--brand-secondary)), rgb(var(--brand-tertiary) / 0.7))',
+         backgroundImage: {
+        'gradient-primary': 'linear-gradient(to bottom right, rgb(var(--brand-primary) / 0.3), rgb(var(--brand-primary)))',
+        'gradient-secondary': 'linear-gradient(to bottom right, rgb(var(--brand-primary) / 0.7), rgb(var(--brand-primary-dark) / 0.8))',
+        'gradient-tertiary': 'linear-gradient(to bottom right, rgb(var(--brand-secondary)), rgb(var(--brand-tertiary) / 0.7))',
       },
     },
   },
